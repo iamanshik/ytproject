@@ -62,6 +62,11 @@
       background-color: rgb(53, 53, 53);
     }
 }
+.apiButtons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 @media screen and (max-width:48rem){
     .container{
         grid-template-columns: repeat(2,minmax(20rem,1fr));

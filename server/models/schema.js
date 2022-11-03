@@ -2,13 +2,13 @@ const mongoose = require('mongoose')
 const TaskSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, 'must provide title of Video'],
+        // required: [true, 'must provide title of Video'],
         trim: true
         
     },
     description:{
         type: String,
-        required: [true, 'must provide title of Video'],
+        // required: [true, 'must provide title of Video'],
         trim: true,
         maxlength: [120, 'dscription can not be more than 120 characters'],
     },

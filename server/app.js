@@ -1,4 +1,5 @@
 const express = require("express");
+const app = express();
 const connectDB = require("./db/connect");
 const cors = require("cors");
 const tasks = require("./routers/tasks");
@@ -6,14 +7,15 @@ const bodyParser = require("body-parser");
 const { LoginSchemas } = require("./models/schema");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const { use } = require("./routers/tasks");
+// const { use } = require("./routers/tasks");
+app.use(cors({
+    origin: '*'
+}));
+app.use("/api",tasks);
 const JWT_Secret = "asj#jsdf";
-
-const app = express();
 require("dotenv").config();
 app.use(express.json({ extended: true }));
-app.use("/api/v1", tasks);
-app.use(cors());
+// app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const fetchUser = (req,res,next)=>{ // will use on the req at which auth is required.

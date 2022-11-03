@@ -1,10 +1,12 @@
-import React from "react";
+import React,{useContext} from "react";
+import contexts from '../../context/Context'
 import "./Navbar.css";
 export default function Navbar() {
+  const contextt =useContext(contexts.Notecontext)
   const [Menu, setMenu] = React.useState(false);
   const [Findicon, setFindicon] = React.useState(false);
-  
-
+  let k = contextt.k
+// console.log(contextt.k)
   return (
     <>
       <div className="Navbar">
@@ -20,8 +22,9 @@ export default function Navbar() {
           <nav className="links" id={Menu? "hidden":""}>
             <a href="/">About</a>
             <a href="/">Home</a>
-            <a href="/">Feedback</a>
-            <a href="/">Buckfullminister</a>
+            <a style={k===true?{display: "none"}:{display: 'flex'}} href="/">Login</a>
+            <a style={k===true?{display: "none"}:{display: 'flex'}} href="/">SignUp</a>    
+            <a style={k===true?{display: "flex"}:{display: "none"}}> user</a>
           </nav>
           <button onClick={()=>setMenu(!Menu)} >Menu</button>
         </div>

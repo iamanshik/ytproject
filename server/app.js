@@ -2,16 +2,15 @@ const express = require("express");
 const app = express();
 const connectDB = require("./db/connect");
 const cors = require("cors");
-const tasks = require("./routers/tasks");
 const bodyParser = require("body-parser");
 const { LoginSchemas } = require("./models/schema");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-// const { use } = require("./routers/tasks");
 app.use(cors({
-    origin: '*'
+  origin: '*'
 }));
-app.use("/api",tasks);
+const tasks = require("./routers/tasks");
+app.use("/api",tasks);   
 const JWT_Secret = "asj#jsdf";
 require("dotenv").config();
 app.use(express.json({ extended: true }));

@@ -19,7 +19,7 @@ const TaskSchema = new mongoose.Schema({
         type: Number
     },
     tags:{
-        type: Array
+        type: String 
     },
     date:{
         type: Date

@@ -12,6 +12,7 @@ export default function App() {
     <ContextFunc.ContextFunc>
       {/* <Navbar/> */}
       <Upload/>
+      <Layout/>
       {/* <Body/> */}
     {/* <SignIn/> */}
     {/* <SignUp/> */}

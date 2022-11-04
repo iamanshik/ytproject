@@ -1,6 +1,5 @@
 const { TaskSchemas, LoginSchemas } = require("../models/schema");
 const {verifyToken}= require('../jwt/jwt_verification')
-const cors  = require("cors")
 const getAllTask = async (req, res) => {
   try {
     const tasks = await TaskSchemas.find({});
@@ -23,10 +22,16 @@ const getOneTask = async (req, res) => {
 };
 const createTask = async ( req, res) => {
   console.log(req.body)
-  console.log(req.user)
   try {
+    // try this if not successful then run catch
     const task = await TaskSchemas.create(req.body);
-
+    // res.setHeader("Access-Control-Allow-Origin", "*");
+    // res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE");
+    // res.setHeader(
+    //   "Access-Control-Allow-Methods",
+    //   "Content-Type",
+    //   "Authorization"
+    // );
     res.status(201).json({ task });
   } catch (error) {
     res.status(500).json({ msg: error });

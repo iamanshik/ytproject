@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import data from "../components/body/newsapi";
+// import data from "../components/body/newsapi";
 const Notecontext = createContext();
 const ContextFunc = (props) => {
   const tokenverify = () => {};
@@ -48,14 +48,19 @@ const ContextFunc = (props) => {
       .then((res) => res.json())
       .then((data) => console.log(data));
   };
-  const upload = (id) => {
-    console.log(id);
-    fetch(`http://localhost/api/234534`, {
-      method: "PATCH",
+  const upload = (details) => {
+    console.log(details.title);
+    fetch(`http://localhost/api`, {
+      method: "POST",
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify({
+        title: "details.title",
+        description: details.description,
+        tags: details.tags
+      })
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
@@ -63,7 +68,14 @@ const ContextFunc = (props) => {
   let k = true;
   return (
     <Notecontext.Provider
-      value={{ SignUpDataBase, loginDataBase, tokenverify, k, deleteVid }}
+      value={{
+        SignUpDataBase,
+        loginDataBase,
+        tokenverify,
+        k,
+        deleteVid,
+        upload,
+      }}
     >
       {props.children}
     </Notecontext.Provider>

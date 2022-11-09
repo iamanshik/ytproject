@@ -2,12 +2,13 @@ const express = require("express");
 const routes = require("./routes/routers");
 const authrouters = require("./routes/authrouters");
 const connectDB = require("./db/connect");
+const jwtVerify = require('./jwt/tokenVerify')
 const cors = require("cors");
 const app = express();
 app.use(cors());
 app.use(express.json())
 app.use("/api", routes);
-app.use("/api/auth",authrouters)
+app.use("/api/auth",jwtVerify,authrouters)
 // app.use('/authapi',authrouters)
 
 const start = async () => {

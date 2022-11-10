@@ -11,7 +11,10 @@ const upload =  async(req,res)=>{
   // console.log(response)
 }
 const deleteVid = async(req,res)=>{
-  console.log(req.params)
+  // console.log(req.params)
+  const {ID: taskID} = req.params
+  const response = await video.findByIdAndDelete({_id: taskID})
+  console.log(response)
 res.send("deleted")
 }
 

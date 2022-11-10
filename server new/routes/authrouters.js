@@ -1,6 +1,6 @@
 const express = require('express')
-const {login,signup} = require('../controllers/authfunctions')
+const {upload,deleteVid} = require('../controllers/authfunctions')
 const authrouters = express.Router()
-authrouters.post("/login",login)
-authrouters.route("/signup").post(signup)
+authrouters.route("/upload").post(upload)
+authrouters.route('/delete/:ID').delete(deleteVid)
 module.exports = authrouters

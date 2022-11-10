@@ -9,7 +9,6 @@ app.use(cors());
 app.use(express.json())
 app.use("/api", routes);
 app.use("/api/auth",jwtVerify,authrouters)
-// app.use('/authapi',authrouters)
 
 const start = async () => {
   try {

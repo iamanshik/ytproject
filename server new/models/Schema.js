@@ -25,12 +25,16 @@ const VidSchema = new mongoose.Schema({
 const LoginDetail = new mongoose.Schema({
     name: {
         type: String,
+        unique: false
     },
     email: {
-        type: String
+        type: String,
+        unique: false
+        
     },
     password: {
-        type: String
+        type: String,
+        unique: false
     }
 })
 const creds = mongoose.model("LoginDetail",LoginDetail)

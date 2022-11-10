@@ -13,7 +13,7 @@ app.use("/api/auth",jwtVerify,authrouters)
 
 const start = async () => {
   try {
-    await connectDB("mongodb://127.0.0.1:27017/ytdata");
+    await connectDB("mongodb://127.0.0.1:27017/ytdataservernew");
     app.listen(80, () => {
       console.log("server listning on 80");
     });
